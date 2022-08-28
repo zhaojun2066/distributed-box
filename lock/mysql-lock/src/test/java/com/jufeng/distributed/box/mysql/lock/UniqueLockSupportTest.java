@@ -62,7 +62,8 @@ public class UniqueLockSupportTest {
             try {
                 uniqueLockSupport.lock("decStoreCount");
                 uniqueLockSupport.lock("decStoreCount");
-                decStoreCount();
+                final int i = decStoreCount();
+                System.out.println("thread: " + Thread.currentThread().getId()+" =>i===" + i);
             }finally {
                 uniqueLockSupport.unLock("decStoreCount");
                 uniqueLockSupport.unLock("decStoreCount");
